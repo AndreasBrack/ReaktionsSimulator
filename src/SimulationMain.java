@@ -10,9 +10,8 @@ public class SimulationMain {
 
 		f.add(b);
 		f.setVisible(true);
-		f.setTitle("Test");
-		f.setSize(800,800);
+		f.setTitle("ReaktionSimulator");
+		f.setSize(810,810);
 		b.wBild();
-
 	}
 }
