@@ -8,7 +8,7 @@ import java.util.Map.Entry;
 @SuppressWarnings("serial")
 public class Bild extends JPanel implements ActionListener{
 
-	Timer t = new Timer(100, this);
+	Timer t = new Timer(20, this);
 	int value = 0;
 	Kugel[] kugeln;
 
@@ -21,11 +21,22 @@ public class Bild extends JPanel implements ActionListener{
 		this.paintComponent(getGraphics());
 	}
 
-	public Bild(int number) {
+	public Bild(int edukt1,int edukt2,int produkt, int wasser) {
+		int number = edukt1+edukt2+produkt+wasser;
 		kugeln = new Kugel[number];
 
 		for(int i = 0; i < number; i++){
-			kugeln[i] = new Kugel(i % 2 + 1);
+			if (i < edukt1) {
+				kugeln[i] = new Kugel(1);	
+			} else if(i >= edukt1 && i < edukt1 + edukt2){
+				kugeln[i] = new Kugel(2);	
+			} else if(i >= edukt1 + edukt2 && i < edukt1 + edukt2 + produkt){
+				kugeln[i] = new Kugel(3);	
+			} else {
+				kugeln[i] = new Kugel(5);	
+
+			}
+			
 		}
 
 		//		value = (int) (MAX * filled);
@@ -65,14 +76,14 @@ public class Bild extends JPanel implements ActionListener{
 
 			int dev = 50;
 
-			if(k.posx +  k.speedx  / dev < 800 && k.posx + k.speedx  / dev > 0){
+			if(k.posx +  k.speedx  / dev < 760 && k.posx + k.speedx  / dev > 0){
 				k.posx += k.speedx / dev;
 			}
 			else{
 				k.speedx *= -1;
 			}
 
-			if(k.posy + k.speedy / dev < 800 && k.posy + k.speedy / dev > 0){
+			if(k.posy + k.speedy / dev < 760 && k.posy + k.speedy / dev > 0){
 				k.posy += k.speedy / dev;
 			}
 			else {
@@ -82,11 +93,11 @@ public class Bild extends JPanel implements ActionListener{
 		
 		for(Kugel k : kugeln){
 			if(k.color == 1){
-				g.setColor(Color.blue);
+				g.setColor(Color.gray);
 				g.fillOval((int) k.posx, (int) k.posy, k.size, k.size);	
 			}
 			if(k.color == 2){
-				g.setColor(Color.green);
+				g.setColor(Color.red);
 				g.fillOval((int) k.posx, (int) k.posy, k.size, k.size);
 			}
 			if(k.color == 3){
@@ -94,6 +105,10 @@ public class Bild extends JPanel implements ActionListener{
 				g.fillOval((int) k.posx, (int) k.posy, k.size, k.size);
 			}
 			if(k.color == 4){
+				g.setColor(Color.blue);
+				g.fillOval((int) k.posx, (int) k.posy, k.size, k.size);
+			}
+			if(k.color == 5){
 				g.setColor(Color.yellow);
 				g.fillOval((int) k.posx, (int) k.posy, k.size, k.size);
 			}
