@@ -5,13 +5,14 @@ public class SimulationMain {
 
 	public static void main(String[] args) {
 
-		Bild b = new Bild(100, 300, 0, 500);
+		Bild b = new Bild(150, 100, 0, 400);
 		JFrame f = new JFrame();
 
 		f.add(b);
 		f.setVisible(true);
 		f.setTitle("Test");
 		f.setSize(800,800);
+		f.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
 		b.wBild();
 
 		

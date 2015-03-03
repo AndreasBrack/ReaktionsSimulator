@@ -47,11 +47,9 @@ public class Kugel {
 				}
 
 
-				this.posy = 730 + (float) (Math.random() * 41) - 21;
+				this.posy = 800 - (float) (Math.random() * 41);
 
 				this.color = color;
-				this.size = 10;
-
 			}
 			else {
 				System.out.println("Farbe: "  + color);
@@ -65,8 +63,6 @@ public class Kugel {
 				this.posy = 730 + (float) (Math.random() * 41) - 21;
 
 				this.color = color;
-				this.size = 15;
-
 			}
 		}
 		else {
@@ -78,12 +74,15 @@ public class Kugel {
 			System.out.println("Kugel fliegt mit " + speedx + " und " + speedy);
 
 			this.posx = (float) (Math.random() * 800);
-			this.posy = (float) (Math.random() * 700);
+			this.posy = (float) (Math.random() * 800);
+
+			System.out.println("Kugel startet an " + posx + " und " + posy);
+
 
 			this.color = color;
-			this.size = 15;
+			
 		}
-
+		this.size = 12;
 		this.id = g_id++;
 	}
 
@@ -126,5 +125,4 @@ public class Kugel {
 
 		}
 	}
-
 }
